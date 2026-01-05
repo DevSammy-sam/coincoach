@@ -1,168 +1,148 @@
 <% layout('./layout/boilerplate') %>
 
 <!-- Hero Section -->
-<section class="py-5">
-    <div class="row align-items-center">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-            <h1 class="fw-bold mb-4">Take Control of Your Finances with CoinCoach</h1>
-            <p class="lead mb-4">Track expenses, manage bills, set financial goals, and get personalized insights to improve your financial health.</p>
-            <div class="d-grid gap-2 d-md-flex">
-                <a href="/register" class="btn btn-primary btn-lg px-4 me-md-2">
-                    <i class="fas fa-user-plus me-2"></i>Get Started
-                </a>
-                <a href="#features" class="btn btn-outline-primary btn-lg px-4">
-                    <i class="fas fa-info-circle me-2"></i>Learn More
-                </a>
+<section class="hero-section py-5 py-md-6">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="hero-content">
+                    <h1 class="hero-title">Intelligent Personal Finance Management</h1>
+                    <p class="hero-subtitle">CoinCoach is a comprehensive financial management platform that helps you track spending, manage bills, achieve savings goals, and build lasting financial stability through AI-powered insights and real-time analytics.</p>
+                    <div class="hero-buttons d-flex flex-wrap gap-3 mt-5">
+                        <a href="/register" class="btn btn-primary btn-lg">
+                            <i class="fas fa-user-plus me-2"></i>Create Free Account
+                        </a>
+                        <a href="#features" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-chevron-down me-2"></i>Explore Features
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-lg-6">
-            <img src="https://img.freepik.com/free-vector/finance-financial-performance-concept-illustration_53876-40450.jpg" alt="Financial Management" class="img-fluid rounded shadow-lg">
+            <div class="col-lg-6">
+                <div class="hero-image-container">
+                    <img src="https://img.freepik.com/free-vector/financial-data-analysis-concept-illustration_53876-41194.jpg" alt="Financial Analytics" class="img-fluid rounded-lg shadow-lg">
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Stats Section -->
-<section class="py-5 bg-light rounded-lg shadow-sm my-5">
-    <div class="row text-center">
-        <div class="col-md-4 mb-4 mb-md-0">
-            <div class="d-inline-block p-4 bg-primary rounded-circle text-white mb-3">
-                <i class="fas fa-users fa-2x"></i>
+<section class="stats-section py-5 py-md-6 bg-gradient-dark my-5">
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="stat-value">100%</h3>
+                    <p class="stat-label">Data Secure & Private</p>
+                </div>
             </div>
-            <h2 class="fw-bold">10,000+</h2>
-            <p class="text-muted">Active Users</p>
-        </div>
-        <div class="col-md-4 mb-4 mb-md-0">
-            <div class="d-inline-block p-4 bg-success rounded-circle text-white mb-3">
-                <i class="fas fa-money-bill-wave fa-2x"></i>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="stat-value">24/7</h3>
+                    <p class="stat-label">Access Anywhere</p>
+                </div>
             </div>
-            <h2 class="fw-bold">$2M+</h2>
-            <p class="text-muted">Savings Tracked</p>
-        </div>
-        <div class="col-md-4">
-            <div class="d-inline-block p-4 bg-info rounded-circle text-white mb-3">
-                <i class="fas fa-chart-line fa-2x"></i>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-zap"></i>
+                    </div>
+                    <h3 class="stat-value">Real-Time</h3>
+                    <p class="stat-label">Instant Updates</p>
+                </div>
             </div>
-            <h2 class="fw-bold">30%</h2>
-            <p class="text-muted">Average Savings Increase</p>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section id="features" class="py-5">
-    <h2 class="text-center mb-5 fw-bold">Key Features</h2>
-    <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-flex mb-3">
-                        <i class="fas fa-exchange-alt text-primary fa-2x"></i>
+<section id="features" class="features-section py-5 py-md-6">
+    <div class="container">
+        <div class="text-center mb-5 mb-md-6">
+            <h2 class="features-title">Key Features</h2>
+            <p class="features-subtitle">Everything you need to master your finances in one place</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
                     </div>
-                    <h5 class="card-title">Transaction Tracking</h5>
-                    <p class="card-text">Record and categorize your income and expenses to understand your spending habits.</p>
+                    <h5 class="feature-title">Transaction Tracking</h5>
+                    <p class="feature-text">Automatically categorize and analyze income and expenses with detailed breakdowns to identify spending patterns and opportunities for savings.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="rounded-circle bg-success bg-opacity-10 p-3 d-inline-flex mb-3">
-                        <i class="fas fa-file-invoice-dollar text-success fa-2x"></i>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h5 class="card-title">Bill Management</h5>
-                    <p class="card-text">Never miss a payment with bill reminders and automatic payment tracking.</p>
+                    <h5 class="feature-title">Bill Management</h5>
+                    <p class="feature-text">Set bill reminders, track due dates, and maintain payment history. Stay organized and avoid late fees with proactive notifications.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="rounded-circle bg-warning bg-opacity-10 p-3 d-inline-flex mb-3">
-                        <i class="fas fa-bullseye text-warning fa-2x"></i>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    <h5 class="card-title">Financial Goals</h5>
-                    <p class="card-text">Set savings goals and track your progress toward achieving your financial dreams.</p>
+                    <h5 class="feature-title">Financial Goals</h5>
+                    <p class="feature-text">Define short and long-term goals with milestone tracking. Visualize progress and receive actionable recommendations to achieve your targets.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm">
-                <div class="card-body text-center p-4">
-                    <div class="rounded-circle bg-info bg-opacity-10 p-3 d-inline-flex mb-3">
-                        <i class="fas fa-chart-pie text-info fa-2x"></i>
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-card h-100">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h5 class="card-title">Smart Insights</h5>
-                    <p class="card-text">Get personalized financial insights and recommendations to improve your finances.</p>
+                    <h5 class="feature-title">AI-Powered Insights</h5>
+                    <p class="feature-text">Receive personalized financial recommendations powered by machine learning. Discover optimization opportunities and financial wellness tips.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="py-5 bg-light rounded-lg shadow-sm my-5">
-    <h2 class="text-center mb-5 fw-bold">What Our Users Say</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body p-4">
-                    <div class="d-flex mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
+<!-- Why Choose Us Section -->
+<section class="why-section py-5 py-md-6 bg-light">
+    <div class="container">
+        <div class="text-center mb-5 mb-md-6">
+            <h2 class="section-title">Why Choose CoinCoach?</h2>
+            <p class="section-subtitle">Built for simplicity, security, and success</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <p class="card-text mb-3">"CoinCoach helped me save for my first home. The goal tracking feature kept me motivated and on track."</p>
-                    <div class="d-flex align-items-center">
-                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">JD</div>
-                        <div>
-                            <h6 class="mb-0">John Doe</h6>
-                            <small class="text-muted">Homeowner</small>
-                        </div>
-                    </div>
+                    <h5 class="why-title">Simple & Intuitive</h5>
+                    <p class="why-text">User-friendly interface designed to make financial management easy for everyone. No technical knowledge required.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4 mb-4 mb-md-0">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body p-4">
-                    <div class="d-flex mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
+            <div class="col-md-4">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-lock"></i>
                     </div>
-                    <p class="card-text mb-3">"The insights feature showed me where I was overspending. I've cut my monthly expenses by 20% thanks to CoinCoach!"</p>
-                    <div class="d-flex align-items-center">
-                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">JS</div>
-                        <div>
-                            <h6 class="mb-0">Jane Smith</h6>
-                            <small class="text-muted">Financial Analyst</small>
-                        </div>
-                    </div>
+                    <h5 class="why-title">Bank-Level Security</h5>
+                    <p class="why-text">Your data is encrypted and protected with industry-standard security measures. Your privacy is our priority.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100">
-                <div class="card-body p-4">
-                    <div class="d-flex mb-3">
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
+            <div class="col-md-4">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <p class="card-text mb-3">"The AI assistant helped me create a budget that actually works for my lifestyle. I'm finally debt-free after years of struggling."</p>
-                    <div class="d-flex align-items-center">
-                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">RJ</div>
-                        <div>
-                            <h6 class="mb-0">Robert Johnson</h6>
-                            <small class="text-muted">Small Business Owner</small>
-                        </div>
-                    </div>
+                    <h5 class="why-title">Dedicated Support</h5>
+                    <p class="why-text">Get help when you need it. Our support team is ready to assist you with any questions or concerns.</p>
                 </div>
             </div>
         </div>
@@ -170,10 +150,17 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-5 text-center">
-    <h2 class="fw-bold mb-4">Ready to Transform Your Finances?</h2>
-    <p class="lead mb-5">Join thousands of users who have taken control of their financial future with CoinCoach.</p>
-    <a href="/register" class="btn btn-primary btn-lg px-5">
-        <i class="fas fa-user-plus me-2"></i>Sign Up Now - It's Free!
-    </a>
-</section>
+<% if(!currentUser){ %>
+    <section class="cta-section py-5 py-md-6">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2 class="cta-title">Take Control of Your Finances Today</h2>
+                <p class="cta-subtitle">Start tracking your expenses, managing bills, and achieving your financial goals with CoinCoach. It's free, simple, and takes just 2 minutes to get started.</p>
+                <a href="/register" class="btn btn-primary btn-lg mt-4">
+                    <i class="fas fa-user-plus me-2"></i>Create Free Account
+                </a>
+                <p class="cta-footer">No credit card required • Completely free to use • Your data is always yours</p>
+            </div>
+        </div>
+    </section>
+<% } %>

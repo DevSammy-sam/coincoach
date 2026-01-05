@@ -149,7 +149,7 @@ Make your “wow” obvious.
 ## 🧪 10. FINAL SANITY CHECK (DO THIS LAST)
 
 - [ ] Can a judge try it in under **2 minutes**?
-- [ ] Does the app clearly solve a **real financial problem**?
+- [ ] Does the app clearly solve a **real financial problem**
 - [ ] Is the value obvious without reading code?
 - [ ] Does it feel like a product, not a tutorial?
 
@@ -166,10 +166,3 @@ Make your “wow” obvious.
 ---
 
 🔥 If you complete **everything above**, CoinCoach becomes a **legit Hackonomics winner candidate**, not just a good project.
-
-If you want next:
-- README.md written for you
-- Demo video script
-- Judge pitch (30-second + 2-minute versions)
-
-Say the word.
