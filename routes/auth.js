@@ -55,6 +55,6 @@ router.post('/login', loginLimiter, storeReturnTo, loginAuthenticate, controller
 
 router.post('/reset-password', catchAsync(controller.resetPassword));
 
-router.post('/logout', controller.logout);
+router.get('/logout', controller.logout);
 
 module.exports = router;
