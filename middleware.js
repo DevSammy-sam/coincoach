@@ -1,6 +1,5 @@
 const passport = require('passport');
 const ExpressError = require('./utils/ExpressError');
-const {transactionSchema, userSchema} = require('./schema');
 const validator = require('validator');
 
 module.exports.loginAuthenticate = passport.authenticate('local', {
