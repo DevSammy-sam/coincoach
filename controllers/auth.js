@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const { registerSchema, sendResetCodeSchema, confirmCodeSchema, resetPasswordSchema } = require('../utils/schemas');
+const ExpressError = require('../utils/ExpressError');
 
 module.exports.home = (req, res)=>{
     res.render('home');
@@ -9,7 +11,11 @@ module.exports.registerForm = (req, res) => {
 };
 
 module.exports.register = async (req, res, next) => {
-    const { displayName, preferredCurrency, password, email, fullName } = req.body;
+    const { error, value } = registerSchema.validate(req.body);
+    if (error) {
+      throw new ExpressError(error.details.map(d => d.message).join(', '), 400);
+    }
+    const { email, password, displayName, preferredCurrency, fullName } = value;
 
     const user = new User({ email, displayName, preferredCurrency, fullName });
     const registeredUser = await User.register(user, password);
@@ -64,8 +70,13 @@ module.exports.enterEmail = (req, res) => {
 };
 
 module.exports.sendResetCode = async (req, res) => {
+    const { error, value } = sendResetCodeSchema.validate(req.body);
+    if (error) {
+      req.flash('error', error.details.map(d => d.message).join(', '));
+      return res.redirect('/enter-email');
+    }
+    const { email } = value;
     const {sendPasswordResetEmail} = require('../services/emailService'); 
-    const { email } = req.body;
 
     const user = await User.findOne({ email});
 
@@ -97,7 +108,12 @@ module.exports.confirmCodeForm = (req, res) => {
 };
 
 module.exports.confirmCode = async (req, res, next) => {
-    const {code} = req.body;
+    const { error, value } = confirmCodeSchema.validate(req.body);
+    if (error) {
+      req.flash('error', error.details.map(d => d.message).join(', '));
+      return res.redirect('/confirm-code');
+    }
+    const { code } = value;
     const user = await User.findOne({ resetCode: code, resetCodeExpires: { $gt: Date.now() } });
 
     if(!user){
@@ -115,13 +131,13 @@ module.exports.resetPasswordForm = (req, res) => {
 };
 
 module.exports.resetPassword = async(req, res)=>{
-    const {newPassword, confirmPassword} = req.body;
+    const { error, value } = resetPasswordSchema.validate(req.body);
+    if (error) {
+      req.flash('error', error.details.map(d => d.message).join(', '));
+      return res.redirect('/reset-password');
+    }
+    const { newPassword } = value;
     const user = await User.findOne({ resetCodeExpires: { $gt: Date.now() } });
-
-    if(newPassword !== confirmPassword){
-        req.flash('error', 'New password and confirmation do not match');
-        return res.redirect('/reset-password');
-    };
 
     
     await user.setPassword(newPassword);

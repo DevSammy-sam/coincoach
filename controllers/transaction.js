@@ -7,14 +7,20 @@ const XLSX = require('xlsx');
 
 const generateInsights = require('../utils/generateInsights');
 const updateGoalProgressFromTransaction = require('../services/updateGoalProgress');
-const conversion = require('../services/conversion')
+const conversion = require('../services/conversion');
+const { transactionSchema, bulkUploadJSONSchema } = require('../utils/schemas');
+const ExpressError = require('../utils/ExpressError');
 
 module.exports.newTransactionForm = (req, res) => {
     res.render('transactions/new');
 };
 
 module.exports.createTransaction = async (req, res) => {
-    const { amount, type, date, description, category, name, recurrence, recurring, currency } = req.body;
+    const { error, value } = transactionSchema.validate(req.body);
+    if (error) {
+      throw new ExpressError(error.details.map(d => d.message).join(', '), 400);
+    }
+    const { amount, type, date, description, category, name, recurrence, recurring, currency } = value;
     const goals = await Goals.find({user : req.user._id});
 
     const conversionRate = await conversion(currency, req.user.preferredCurrency);
@@ -218,12 +224,13 @@ module.exports.bulkUploadJSONFrontend = (req, res) => {
 };
 
 module.exports.bulkUploadJSON = async (req, res) => {
-    const { transactions } = req.body;
-
-    if (!Array.isArray(transactions)) {
-        req.flash('error', 'Invalid JSON format');
-        return res.redirect('/transactions/bulk-upload-json');
+    const { error, value } = bulkUploadJSONSchema.validate(req.body);
+    if (error) {
+      req.flash('error', error.details.map(d => d.message).join(', '));
+      return res.redirect('/transactions/bulk-upload-json');
     }
+
+    const { transactions } = value;
 
     for (const t of transactions) {
         const transaction = new Transaction({
