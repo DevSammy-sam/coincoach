@@ -110,7 +110,7 @@ module.exports.editProfile = async(req, res)=>{
 
   await user.save();
   req.flash('success', 'Profile updated successfully');
-  res.redirect(`/user/${user.displayName}`);
+  res.redirect(`/user/profile`);
 };
 
 module.exports.editAccount = async( req, res)=>{

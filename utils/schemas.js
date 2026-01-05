@@ -104,6 +104,54 @@ const bulkUploadJSONSchema = Joi.object({
   })
 });
 
+// ==================== GOALS SCHEMAS ====================
+
+const goalExplanationSchema = Joi.object({
+  explanation: Joi.string().trim().min(10).max(1000).required().messages({
+    'string.empty': 'Goal explanation cannot be empty',
+    'string.min': 'Goal explanation must be at least 10 characters',
+    'string.max': 'Goal explanation must be less than 1000 characters',
+    'any.required': 'Goal explanation is required'
+  })
+});
+
+const updateGoalStatusSchema = Joi.object({
+  status: Joi.string().valid('in_progress', 'completed', 'paused', 'abandoned').required().messages({
+    'any.only': 'Status must be one of: in_progress, completed, paused, abandoned',
+    'any.required': 'Status is required'
+  })
+});
+
+// ==================== CHAT SCHEMAS ====================
+
+const createMessageSchema = Joi.object({
+  role: Joi.string().valid('user', 'assistant').required().messages({
+    'any.only': 'Role must be either "user" or "assistant"',
+    'any.required': 'Role is required'
+  }),
+  content: Joi.string().trim().min(1).max(5000).required().messages({
+    'string.empty': 'Message content cannot be empty',
+    'string.max': 'Message content must be less than 5000 characters',
+    'any.required': 'Message content is required'
+  })
+});
+
+const updateMessageSchema = Joi.object({
+  content: Joi.string().trim().min(1).max(5000).required().messages({
+    'string.empty': 'Message content cannot be empty',
+    'string.max': 'Message content must be less than 5000 characters',
+    'any.required': 'Message content is required'
+  })
+});
+
+const updateSessionTitleSchema = Joi.object({
+  title: Joi.string().trim().min(1).max(200).required().messages({
+    'string.empty': 'Title cannot be empty',
+    'string.max': 'Title must be less than 200 characters',
+    'any.required': 'Title is required'
+  })
+});
+
 module.exports = {
   registerSchema,
   loginSchema,
@@ -111,5 +159,10 @@ module.exports = {
   confirmCodeSchema,
   resetPasswordSchema,
   transactionSchema,
-  bulkUploadJSONSchema
+  bulkUploadJSONSchema,
+  goalExplanationSchema,
+  updateGoalStatusSchema,
+  createMessageSchema,
+  updateMessageSchema,
+  updateSessionTitleSchema
 };
