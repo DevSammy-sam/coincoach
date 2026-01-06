@@ -20,6 +20,7 @@
     "express-rate-limit": "^8.2.1",
     "express-session": "^1.18.2",
     "groq-sdk": "^0.37.0",
+    "he": "^1.2.0",
     "joi": "^18.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^9.0.1",

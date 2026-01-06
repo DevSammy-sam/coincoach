@@ -1,4 +1,6 @@
 const Groq = require("groq-sdk");
+const he = require('he');
+
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 module.exports.generateResponse = async (req, res) => {
@@ -75,12 +77,11 @@ module.exports.generateResponse = async (req, res) => {
             max_tokens: 1024
         });
 
-        const aiMessage =
-        response.choices[0]?.message?.content
-          ?.replace(/&#x27;/g, "'")
-          ?.replace(/&quot;/g, '"')
-          ?.replace(/&amp;/g, '&')
-        || "I couldn't generate a response.";
+        const rawMessage = response.choices[0]?.message?.content;
+
+        const aiMessage = rawMessage
+          ? he.decode(rawMessage)
+          : "I couldn't generate a response.";
               
         res.json({ message: aiMessage });
     } catch (error) {
