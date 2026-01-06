@@ -43,7 +43,7 @@ module.exports.userDashboard = async(req, res)=>{
   const endOfMonth = new Date(currentYear, currentMonth, 1);
   const transactionsThisMonth = await Transaction.countDocuments({
     userId: req.user._id,
-    date: { $gte: startOfMonth, $lt: endOfMonth }
+    createdAt: { $gte: startOfMonth, $lt: endOfMonth }
   });
 
   // Calculate average transaction
@@ -53,7 +53,7 @@ module.exports.userDashboard = async(req, res)=>{
 
   // Get recent transactions
   const recentTransactions = await Transaction.find({ userId: req.user._id })
-    .sort({ date: -1 })
+    .sort({ createdAt : -1 })
     .limit(5);
 
   res.render('user/dashboard', {

@@ -58,22 +58,6 @@ Localhost projects lose hackathons.
   - `.env` is ignored
   - App boots cleanly in production
 
----
-
-## 🖼 4. UI / UX POLISH (JUDGES NOTICE THIS)
-
-You don’t need fancy — you need **clear**.
-
-- [ ] Improve dashboard layout (spacing, alignment, hierarchy)
-- [ ] Highlight **key numbers**:
-  - Net balance
-  - Avg expenses
-  - Upcoming recurring bills
-- [ ] Charts are readable and labeled
-- [ ] Mobile responsiveness (basic, not perfect)
-
----
-
 ## 📘 5. README.md (CRITICAL FOR JUDGES)
 
 Your README is your **silent pitch**.
@@ -165,4 +149,4 @@ Make your “wow” obvious.
 
 ---
 
-🔥 If you complete **everything above**, CoinCoach becomes a **legit Hackonomics winner candidate**, not just a good project.
+If you complete **everything above**, CoinCoach becomes a **legit Hackonomics winner candidate**, not just a good project.
