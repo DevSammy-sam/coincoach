@@ -8,23 +8,23 @@
         </a>
 
         <% if (typeof currentUser !== 'undefined' && currentUser) { %>
-        <div class="d-none d-lg-flex align-items-center">
-            <a href="/" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Home</a>
-            <a href="/user/dashboard" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Dashboard</a>
-            <a href="/transactions" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Transactions</a>
-            <a href="/bills" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Bills</a>
-            <a href="/goals" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Goals</a>
-            <a href="/insights" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Insights</a>
-            <a href="/chat" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">AI Assistant</a>
+        <div class="d-none d-lg-flex align-items-center flex-wrap justify-content-center justify-content-lg-start">
+            <a href="/" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Home</a>
+            <a href="/user/dashboard" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Dashboard</a>
+            <a href="/transactions" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Transactions</a>
+            <a href="/bills" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Bills</a>
+            <a href="/goals" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Goals</a>
+            <a href="/insights" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Insights</a>
+            <a href="/chat" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">AI Assistant</a>
         </div>
         <% } else { %>
-        <div class="d-none d-lg-flex align-items-center">
-            <a href="/" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Home</a>
-            <a href="/conversion" class="nav-link px-3 px-lg-4 py-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease;">Conversion</a>
+        <div class="d-none d-lg-flex align-items-center flex-wrap justify-content-center justify-content-lg-start">
+            <a href="/" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Home</a>
+            <a href="/conversion" class="nav-link px-2 px-md-3 px-lg-4 py-1 py-md-2 mx-1 text-dark text-decoration-none position-relative slide-in-up stagger-item" style="font-weight: 500; transition: all 0.3s ease; font-size: 0.9rem;">Conversion</a>
         </div>
         <% } %>
 
-        <div class="d-flex align-items-center">
+        <div class="d-none d-lg-flex align-items-center">
             <% if (typeof currentUser !== 'undefined' && currentUser) { %>
                 <div class="dropdown">
                     <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50px; padding: 0.5rem 1rem; font-weight: 500; transition: all 0.3s ease;">
@@ -47,11 +47,34 @@
                     <span class="d-none d-lg-inline">Sign Up</span>
                 </a>
             <% } %>
+        </div>
 
-            <!-- Mobile menu button -->
-            <button class="btn d-md-none ms-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" style="border-radius: 50%; padding: 0.5rem; border: 1px solid var(--gray-light);">
-                <i class="fas fa-bars"></i>
+        <!-- Mobile menu dropdown -->
+        <div class="dropdown d-lg-none">
+            <button class="btn btn-outline-primary dropdown-toggle d-flex align-items-center" type="button" id="mobileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="border-radius: 50px; padding: 0.5rem 1rem; font-weight: 500; transition: all 0.3s ease;">
+                <i class="fas fa-bars me-2"></i>
+                <span>Menu</span>
             </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0" aria-labelledby="mobileDropdown" style="border-radius: 12px; margin-top: 0.5rem;">
+                <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+                <li><a class="dropdown-item py-3 px-4" href="/"><i class="fas fa-home me-3"></i>Home</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/user/dashboard"><i class="fas fa-tachometer-alt me-3"></i>Dashboard</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/transactions"><i class="fas fa-exchange-alt me-3"></i>Transactions</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/bills"><i class="fas fa-file-invoice-dollar me-3"></i>Bills</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/goals"><i class="fas fa-bullseye me-3"></i>Goals</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/insights"><i class="fas fa-chart-line me-3"></i>Insights</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/chat"><i class="fas fa-robot me-3"></i>AI Assistant</a></li>
+                <li><hr class="dropdown-divider my-2"></li>
+                <li><a class="dropdown-item py-3 px-4" href="/user/profile"><i class="fas fa-user me-3"></i>Profile</a></li>
+                <li><a class="dropdown-item py-3 px-4 text-danger" href="/logout"><i class="fas fa-sign-out-alt me-3"></i>Logout</a></li>
+                <% } else { %>
+                <li><a class="dropdown-item py-3 px-4" href="/"><i class="fas fa-home me-3"></i>Home</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/conversion"><i class="fas fa-sync-alt me-3"></i>Conversion</a></li>
+                <li><hr class="dropdown-divider my-2"></li>
+                <li><a class="dropdown-item py-3 px-4" href="/login"><i class="fas fa-sign-in-alt me-3"></i>Login</a></li>
+                <li><a class="dropdown-item py-3 px-4" href="/register"><i class="fas fa-user-plus me-3"></i>Sign Up</a></li>
+                <% } %>
+            </ul>
         </div>
     </nav>
 </header>
@@ -111,37 +134,4 @@
 }
 </style>
 
-<!-- Mobile Menu Offcanvas -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <% if (typeof currentUser !== 'undefined' && currentUser) { %>
-        <!-- Logged-in user menu -->
-        <nav class="nav flex-column">
-            <a class="nav-link" href="/"><i class="fas fa-home me-2"></i>Home</a>
-            <a class="nav-link" href="/user/dashboard"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a class="nav-link" href="/transactions"><i class="fas fa-exchange-alt me-2"></i>Transactions</a>
-            <a class="nav-link" href="/bills"><i class="fas fa-file-invoice-dollar me-2"></i>Bills</a>
-            <a class="nav-link" href="/goals"><i class="fas fa-bullseye me-2"></i>Goals</a>
-            <a class="nav-link" href="/insights"><i class="fas fa-chart-line me-2"></i>Insights</a>
-            <a class="nav-link" href="/chat"><i class="fas fa-robot me-2"></i>AI Assistant</a>
-            <hr>
-            <a class="nav-link text-danger" href="/logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
-        </nav>
-        <% } else { %>
-        <!-- Non-logged-in user menu -->
-        <nav class="nav flex-column">
-            <a class="nav-link" href="/"><i class="fas fa-home me-2"></i>Home</a>
-            <a class="nav-link" href="/conversion"><i class="fas fa-sync-alt me-2"></i>Conversion</a>
-            <hr>
-            <div class="d-grid gap-2">
-                <a href="/login" class="btn btn-outline-primary"><i class="fas fa-sign-in-alt me-2"></i>Login</a>
-                <a href="/register" class="btn btn-primary"><i class="fas fa-user-plus me-2"></i>Sign Up</a>
-            </div>
-        </nav>
-        <% } %>
-    </div>
-</div>
+

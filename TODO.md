@@ -1,12 +1,12 @@
-# 📋 TODO.md — CoinCoach Hackonomics 2026 Winning Checklist
+# Restyle Header Mobile View with Dropdown
 
-This TODO list is **laser-focused on winning Hackonomics 2026**, not just “finishing a project”.
-Order matters — this is ranked by **judge impact**.
-
----
-
-## 🧠 1. THEME ALIGNMENT — Financial Literacy & Economics (HIGH PRIORITY)
-
+## Tasks
+- [ ] Hide main navigation links on mobile (add `d-none d-lg-flex` to nav links container)
+- [ ] Replace offcanvas with Bootstrap dropdown menu triggered by hamburger button
+- [ ] Populate dropdown with navigation items (Home, Dashboard, etc.) for logged-in users
+- [ ] Populate dropdown with navigation items (Home, Conversion) and actions (Login, Sign Up) for non-logged-in users
+- [ ] Update hamburger button to dropdown toggle
+- [ ] Remove offcanvas HTML
 Judges must immediately understand **what economic problem this solves**.
 
 - [ ] Write a **1–2 sentence problem statement**  

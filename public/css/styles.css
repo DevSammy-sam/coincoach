@@ -2364,8 +2364,180 @@ blockquote {
         padding-bottom: 2rem;
     }
 
+.mb-md-6 {
+    margin-bottom: 2rem;
+}
+
+/* ===== IPAD RESPONSIVE STYLES ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Container adjustments for iPad */
+    .container {
+        max-width: 900px;
+        padding: 0 var(--spacing-6);
+    }
+
+    /* Hero section iPad styles */
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        margin-top: 2rem;
+    }
+
+    .hero-buttons .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: var(--font-size-lg);
+    }
+
+    /* Stats section iPad layout */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .stat-item {
+        padding: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    /* Features section iPad styles */
+    .features-title {
+        font-size: 2rem;
+    }
+
+    .features-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .feature-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .feature-title {
+        font-size: 1.125rem;
+    }
+
+    /* Why choose us section iPad styles */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .why-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .why-title {
+        font-size: 1.125rem;
+    }
+
+    /* CTA section iPad styles */
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-subtitle {
+        font-size: 1.125rem;
+    }
+
+    /* Dashboard iPad styles */
+    .dashboard-title {
+        font-size: 1.75rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+        gap: 0.75rem;
+    }
+
+    .stat-card-value {
+        font-size: 1.5rem;
+    }
+
+    .quick-stat-card {
+        padding: 1.25rem;
+    }
+
+    .quick-stat-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .activity-card {
+        margin-bottom: var(--spacing-4);
+    }
+
+    .transaction-item {
+        padding: 0.875rem;
+    }
+
+    .transaction-name {
+        font-size: 1rem;
+    }
+
+    /* Table iPad styles */
+    .table th,
+    .table td {
+        padding: 0.875rem 1rem;
+    }
+
+    /* Card grid iPad adjustments */
+    .card-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-4);
+    }
+
+    /* Button iPad sizes */
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: var(--font-size-base);
+    }
+
+    .btn-xl {
+        padding: 0.875rem 1.75rem;
+        font-size: var(--font-size-lg);
+    }
+
+    /* Form controls iPad styles */
+    .form-control {
+        padding: 0.75rem 1rem;
+        font-size: var(--font-size-base);
+    }
+
+    /* Alert iPad styles */
+    .alert {
+        padding: var(--spacing-3) var(--spacing-4);
+    }
+
+    /* Navigation iPad styles */
+    header nav {
+        padding: var(--spacing-4) 0;
+    }
+
+    /* Spacing utilities for iPad */
+    .py-md-6 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
     .mb-md-6 {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
     }
 }
 
