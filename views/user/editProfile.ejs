@@ -1,21 +1,45 @@
 <% layout('./layout/boilerplate') %>
 
-<h2>Edit Profile</h2>
+<div class="container mt-6">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h2 class="card-title mb-0">Edit Profile</h2>
+                </div>
+                <div class="card-body p-6">
+                    <form action="/user/edit-profile" method="post" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" name="fullName" id="fullName" class="form-control" value="<%= user.fullName %>" required>
+                        </div>
 
-<form action="/user/edit-profile" method="post" class="needs-validation" novalidate>
-    <label for="fullName" class="form-labe">Full Name</label>
-    <input type="text" name="fullName" id="fullName" class="form-control" value="<%= user.fullName %>" required>
-    <label for="displayName" class="form-label">Display Name</label>
-    <input type="text" id="displayName" name="displayName" class="form-control" value="<%= user.displayName %>" required>
+                        <div class="form-group">
+                            <label for="displayName" class="form-label">Display Name</label>
+                            <input type="text" id="displayName" name="displayName" class="form-control" value="<%= user.displayName %>" required>
+                        </div>
 
-    <label for="preferredCurrency" class="form-label">Preffered Currency</label>
-    <input type="text" name="preferredCurrency" id="preferredCurrency" value="<%= user.preferredCurrency %>" class="form-control" required>
+                        <div class="form-group">
+                            <label for="preferredCurrency" class="form-label">Preferred Currency</label>
+                            <input type="text" name="preferredCurrency" id="preferredCurrency" value="<%= user.preferredCurrency %>" class="form-control" required>
+                        </div>
 
-    <label for="location" class="form-label">Location</label>
-    <input type="text" id="location" name="location" value="<%= user.location %>" required class="form-control">
+                        <div class="form-group">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" id="location" name="location" value="<%= user.location %>" required class="form-control">
+                        </div>
 
-    <label for="bio" class="form-label">Bio</label>
-    <textarea name="bio" id="bio"><%= user.bio %></textarea>
+                        <div class="form-group">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea name="bio" id="bio" class="form-control" rows="4"><%= user.bio %></textarea>
+                        </div>
 
-    <button class="btn btn-primary">Update Profile</button>
-</form>
+                        <div class="d-flex justify-content-end mt-6">
+                            <button type="submit" class="btn btn-primary btn-lg px-6">Update Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
