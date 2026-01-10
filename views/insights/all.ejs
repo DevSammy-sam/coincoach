@@ -83,6 +83,14 @@
                     </div>
                   </div>
                 </div>
+                <hr class="my-3">
+                <p class="mb-0 text-muted small">
+                  <% if (insight.incomeVsExpenses.net >= 0) { %>
+                    Great! You're spending less than you earn by $<%= insight.incomeVsExpenses.net.toLocaleString() %>. This positive cash flow means you can save money or invest in your future.
+                  <% } else { %>
+                    You're spending more than you earn by $<%= Math.abs(insight.incomeVsExpenses.net).toLocaleString() %>. Consider reviewing your expenses and creating a budget to bring your spending in line with your income.
+                  <% } %>
+                </p>
               </div>
             </div>
           </div>
@@ -141,6 +149,17 @@
                 <small class="opacity-75">/100</small>
               </div>
             </div>
+          </div>
+          <div class="card-body">
+            <p class="mb-0 text-muted">
+              <% if (insight.spendingEfficiencyScore >= 80) { %>
+                Great job! Your score of <%= insight.spendingEfficiencyScore %> indicates you're doing an excellent job managing your money efficiently. Keep up the good work!
+              <% } else if (insight.spendingEfficiencyScore >= 60) { %>
+                Your score of <%= insight.spendingEfficiencyScore %> shows you're managing your money reasonably well, but there are opportunities to improve your spending habits and save more.
+              <% } else { %>
+                Your score of <%= insight.spendingEfficiencyScore %> suggests there are significant opportunities to improve your financial efficiency. Consider reviewing your spending patterns and creating a budget.
+              <% } %>
+            </p>
           </div>
         </div>
 

@@ -2,6 +2,14 @@
 
 CoinCoach is a comprehensive financial management application built with Node.js, Express.js, and MongoDB. It helps users track transactions, set financial goals, gain insights into spending habits, manage bills, and interact with AI-powered features for personalized financial advice.
 
+## Problem Statement
+
+Many people struggle with managing their personal finances effectively, leading to poor spending habits, missed bill payments, and unachieved savings goals. CoinCoach addresses this by providing an intuitive platform that combines transaction tracking, AI-driven insights, and educational tools to empower users to take control of their financial future.
+
+## Financial Literacy
+
+CoinCoach helps users build essential financial literacy skills by providing clear, actionable insights into their spending patterns and financial health. Users learn to understand concepts like budgeting, expense tracking, bill management, and goal setting through interactive tools and AI-powered explanations. This education is crucial because financial literacy directly impacts long-term wealth building, reduces financial stress, and enables better decision-making for major life purchases like homes, cars, and retirement planning.
+
 ## Features
 
 - **User Authentication**: Secure registration, login, logout, and password reset functionality with rate limiting.
