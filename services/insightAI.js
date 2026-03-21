@@ -166,14 +166,189 @@ const transactionInsight = async (transactions, goals) => {
 
     const raw = response.choices[0].message.content;
 
-    // Parse JSON safely
-    const jsonStart = raw.indexOf("{");
-    const jsonEnd = raw.lastIndexOf("}");
-    const jsonString = raw.substring(jsonStart, jsonEnd + 1);
+    // Parse JSON safely with multiple fallback strategies
+    let jsonString = raw;
+    let parsedData;
 
-    return JSON.parse(jsonString);
+    // Helper function to validate and sanitize the parsed data
+    const validateAndSanitizeData = (data) => {
+        if (!data || typeof data !== 'object') {
+            return null;
+        }
 
-  } catch (error) {
+        // Ensure all required fields exist with proper defaults
+        const sanitized = {
+            incomeVsExpenses: data.incomeVsExpenses || {
+                totalIncome: 0,
+                totalExpenses: 0,
+                net: 0,
+                chart: "Income vs Expenses Over Time"
+            },
+            expenseBreakdown: data.expenseBreakdown || {
+                categories: [],
+                chart: "Expense Categories Pie Chart"
+            },
+            topExpenses: Array.isArray(data.topExpenses) ? data.topExpenses : [],
+            monthlyAverages: data.monthlyAverages || {
+                averageMonthlyIncome: 0,
+                averageMonthlySpend: 0,
+                averageMonthlyNet: 0
+            },
+            incomeSources: data.incomeSources || {
+                sources: [],
+                chart: "Income Categories"
+            },
+            recentLargeTransactions: Array.isArray(data.recentLargeTransactions) ? data.recentLargeTransactions : [],
+            spendingEfficiencyScore: typeof data.spendingEfficiencyScore === 'number' ? data.spendingEfficiencyScore : 0,
+            recurringInsights: data.recurringInsights || {
+                totalRecurringIncome: 0,
+                totalRecurringExpenses: 0,
+                recurringIncomePercentage: 0,
+                notes: "Unable to parse detailed insights from AI response"
+            },
+            riskSignals: Array.isArray(data.riskSignals) ? data.riskSignals : [],
+            optimizationSuggestions: Array.isArray(data.optimizationSuggestions) ? data.optimizationSuggestions : [],
+            behaviorPatterns: data.behaviorPatterns || {
+                highestIncomeMonth: null,
+                highestExpenseMonth: null,
+                notes: "Unable to analyze behavior patterns due to parsing error"
+            },
+            futureProjection: data.futureProjection || {
+                projectedMonthlyNet: 0,
+                projectedYearlyNet: 0,
+                confidence: "low"
+            },
+            goalAssessment: data.goalAssessment || {
+                goalId: null,
+                goalTitle: null,
+                targetAmount: null,
+                currentSavings: null,
+                timeframeMonths: null,
+                isAchievable: null,
+                requiredMonthlySavings: null,
+                recommendedAdjustments: [],
+                notes: "Unable to assess goals due to parsing error"
+            },
+            summary: typeof data.summary === 'string' ? data.summary : "Unable to generate insights due to a parsing error. Please try again."
+        };
+
+        return sanitized;
+    };
+
+    try {
+        // First, try to parse the raw response directly
+        parsedData = JSON.parse(raw);
+        const validatedData = validateAndSanitizeData(parsedData);
+        if (validatedData) {
+            return validatedData;
+        } else {
+            throw new Error("Parsed data is invalid or missing required structure");
+        }
+    } catch (parseError) {
+        // If direct parsing fails, try to extract JSON from the response
+        try {
+            // Look for JSON object boundaries
+            const jsonStart = raw.indexOf("{");
+            const jsonEnd = raw.lastIndexOf("}");
+            
+            if (jsonStart !== -1 && jsonEnd !== -1 && jsonEnd > jsonStart) {
+                jsonString = raw.substring(jsonStart, jsonEnd + 1);
+                parsedData = JSON.parse(jsonString);
+                return parsedData;
+            }
+        } catch (extractError) {
+            // If substring parsing fails, try to clean the JSON string
+            try {
+                // Remove any markdown code block markers
+                jsonString = jsonString.replace(/```json\s*|```/g, '');
+                
+                // Remove any leading/trailing whitespace and newlines
+                jsonString = jsonString.trim();
+                
+                // Try to fix common JSON issues
+                // Replace single quotes with double quotes (basic fix)
+                jsonString = jsonString.replace(/'/g, '"');
+                
+                // Ensure proper comma placement and remove trailing commas
+                jsonString = jsonString.replace(/,(\s*[}\]])/g, '$1');
+                
+                parsedData = JSON.parse(jsonString);
+                return parsedData;
+            } catch (cleanError) {
+                console.error("Failed to parse AI response after all attempts:", cleanError);
+                console.error("Raw response:", raw);
+                console.error("Extracted JSON string:", jsonString);
+                
+                // Return a fallback structure with the available data
+                return {
+                    incomeVsExpenses: {
+                        totalIncome: 0,
+                        totalExpenses: 0,
+                        net: 0,
+                        chart: "Income vs Expenses Over Time"
+                    },
+                    expenseBreakdown: {
+                        categories: [],
+                        chart: "Expense Categories Pie Chart"
+                    },
+                    topExpenses: [],
+                    monthlyAverages: {
+                        averageMonthlyIncome: 0,
+                        averageMonthlySpend: 0,
+                        averageMonthlyNet: 0
+                    },
+                    incomeSources: {
+                        sources: [],
+                        chart: "Income Categories"
+                    },
+                    recentLargeTransactions: [],
+                    spendingEfficiencyScore: 0,
+                    recurringInsights: {
+                        totalRecurringIncome: 0,
+                        totalRecurringExpenses: 0,
+                        recurringIncomePercentage: 0,
+                        notes: "Unable to parse detailed insights from AI response"
+                    },
+                    riskSignals: [
+                        {
+                            type: "Parsing Error",
+                            message: "Failed to parse AI response. Please try generating insights again.",
+                            severity: "medium"
+                        }
+                    ],
+                    optimizationSuggestions: [
+                        {
+                            area: "System",
+                            suggestion: "The AI response could not be parsed properly. This may be a temporary issue with the AI service."
+                        }
+                    ],
+                    behaviorPatterns: {
+                        highestIncomeMonth: null,
+                        highestExpenseMonth: null,
+                        notes: "Unable to analyze behavior patterns due to parsing error"
+                    },
+                    futureProjection: {
+                        projectedMonthlyNet: 0,
+                        projectedYearlyNet: 0,
+                        confidence: "low"
+                    },
+                    goalAssessment: {
+                        goalId: null,
+                        goalTitle: null,
+                        targetAmount: null,
+                        currentSavings: null,
+                        timeframeMonths: null,
+                        isAchievable: null,
+                        requiredMonthlySavings: null,
+                        recommendedAdjustments: [],
+                        notes: "Unable to assess goals due to parsing error"
+                    },
+                    summary: "Unable to generate insights due to a parsing error. Please try again."
+                };
+            }
+        }
+    }
+} catch (error) {
     console.error("Groq Insight Error:", error);
     throw new Error("Failed to generate transaction insights");
   }
