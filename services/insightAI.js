@@ -172,8 +172,7 @@ const transactionInsight = async (transactions, goals) => {
     const jsonString = raw.substring(jsonStart, jsonEnd + 1);
 
     return JSON.parse(jsonString);
-
-  } catch (error) {
+} catch (error) {
     console.error("Groq Insight Error:", error);
     throw new Error("Failed to generate transaction insights");
   }
